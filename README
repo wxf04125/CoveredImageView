@@ -1,11 +1,8 @@
 An ImageView that can slowly reveal its content by changing the clip bounds over a period of time.
 
-There are several ways to do this - one way is to simply change the clip on the canvas (i.e. the area where the view is allowed to draw) 
-of the ImageView drawing your image. Slowly increasing the right-hand edge of the draw bounds will result in same effect as in your 
-example link.
+There are several ways to do this - one way is to simply change the clip on the canvas (i.e. the area where the view is allowed to draw) of the ImageView drawing your image. Slowly increasing the right-hand edge of the draw bounds will result in same effect as in your example link.
 
-I have written some example code which illustrates this technique. If you download/build/run the project, clicking on the image will run 
-the reveal animation.
+I have written some example code which illustrates this technique. If you download/build/run the project, clicking on the image will run the reveal animation.
 
 Have a look at the onDraw method of the CoveredImageView class, which has the following basic structure:
 
@@ -22,6 +19,4 @@ protected void onDraw(Canvas canvas) {
 }
 The clip is adjusted and then invalidate() is called, causing onDraw() to be called again.
 
-I have also written some code to interpolate the right clip value from the elapsed time, which does not depend on any particular version 
-of Android. However, as a note, from Android 3.0 there is a new animation framework and a ValueAnimator class which could help perform 
-such tasks.
+I have also written some code to interpolate the right clip value from the elapsed time, which does not depend on any particular version of Android. However, as a note, from Android 3.0 there is a new animation framework and a ValueAnimator class which could help perform such tasks.
